@@ -1,0 +1,28 @@
+{
+  "name": "velora",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VELORA - social discovery, live shopping and quick commerce in one loop.",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "dev:web": "pnpm --filter @velora/web dev",
+    "dev:api": "pnpm --filter @velora/api dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "verify": "node scripts/verify.mjs",
+    "lint": "pnpm -r lint",
+    "db:generate": "pnpm --filter @velora/db generate",
+    "db:validate": "pnpm --filter @velora/db validate",
+    "db:push": "pnpm --filter @velora/db push",
+    "db:migrate": "pnpm --filter @velora/db migrate",
+    "db:seed": "pnpm --filter @velora/db seed",
+    "format": "prettier --write \"**/*.{ts,tsx,js,cjs,json,css,md,prisma}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

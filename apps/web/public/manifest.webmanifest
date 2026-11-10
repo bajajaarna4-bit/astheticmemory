@@ -1,0 +1,20 @@
+{
+  "name": "VELORA — See it. Save it. Have it in ten.",
+  "short_name": "VELORA",
+  "description": "Social discovery, saved boards and ten-minute quick commerce in one shoppable loop.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#05060C",
+  "theme_color": "#05060C",
+  "categories": ["shopping", "social", "lifestyle"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

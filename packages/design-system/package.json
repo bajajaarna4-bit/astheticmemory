@@ -1,0 +1,18 @@
+{
+  "name": "@velora/design-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VELORA design tokens, Tailwind preset and theme CSS (single source of truth).",
+  "files": ["tokens.cjs", "tokens.d.ts", "tailwind-preset.cjs", "tailwind-preset.d.ts", "styles"],
+  "exports": {
+    "./tokens": {
+      "types": "./tokens.d.ts",
+      "default": "./tokens.cjs"
+    },
+    "./tailwind-preset": {
+      "types": "./tailwind-preset.d.ts",
+      "default": "./tailwind-preset.cjs"
+    },
+    "./styles.css": "./styles/theme.css"
+  }
+}
