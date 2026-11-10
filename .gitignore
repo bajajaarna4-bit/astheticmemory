@@ -36,3 +36,5 @@ coverage/
 
 # Qoder IDE artifacts (repo wiki / caches)
 .qoder/
+# local clean-room deploy verification
+.clean-room/

@@ -64,6 +64,27 @@ pnpm dev
 
 ---
 
+## Deploying
+
+The repo root is a pnpm workspace, **not an app**. A Vercel project pointed at the repo root — or at `apps/api` — has no static output and no Next.js runtime, so *every* request, including `/_next/static/*`, fails with `500: FUNCTION_INVOCATION_FAILED` (or `404: NOT_FOUND`). The project has to be pointed at the web app.
+
+**Vercel**
+
+1. Import `bajajaarna4-bit/astheticmemory`.
+2. **Settings → Build and Deployment → Root Directory → `apps/web` → Save.** This is the only setting that matters; without it the deployment cannot serve the site.
+3. Framework preset **Next.js** — pinned by `apps/web/vercel.json`, so it is detected correctly either way.
+4. Leave install/build/output on their defaults: Vercel installs at the workspace root (`pnpm install`) and reads `apps/web/.next`.
+5. Optional environment variable: `NEXT_PUBLIC_SITE_URL=https://your-domain` (canonical URL and OG tags fall back to `https://velora.app`).
+6. Redeploy with **Use existing Build Cache** unchecked, so the new root directory and lockfile are picked up.
+
+No database is needed: the landing page is fully prerendered, and the API is not part of this deployment.
+
+`apps/api` is a long-lived Express process — it needs a container host (Fly.io, Railway, Render, a VPS), not a static or Next.js deployment.
+
+The pnpm version is pinned via `packageManager` in the root `package.json`, and dependency build scripts are allowlisted with `allowBuilds` in `pnpm-workspace.yaml`. Both are load-bearing: the pnpm 9/10 key `onlyBuiltDependencies` is ignored from pnpm 11 onwards, and a fresh install then aborts with `ERR_PNPM_IGNORED_BUILDS`.
+
+---
+
 ## Structure
 
 ```
